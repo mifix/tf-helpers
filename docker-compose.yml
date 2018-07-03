@@ -1,0 +1,17 @@
+version: "3.2"
+
+
+services:
+  builder:
+    build:
+      context: .
+      args:
+        - TERRAFORM_VERSION=v0.11.7
+        - TF_LIBVIRT_VERSION=v0.3
+    environment:
+      - USER
+      - GROUP
+    volumes:
+      - type: bind
+        source: ./target
+        target: /go/bin
